@@ -3,30 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lalel — Portafolio en Rust</title>
-    <link rel="stylesheet" href="/style.css">
-    <style>
-        /* Solo estilos mínimos para los datos dinámicos */
-        .repo-title {
-            color: var(--text);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .repo-title:hover {
-            color: var(--rust);
-        }
-        .loading {
-            color: var(--text-muted);
-            font-style: italic;
-        }
-        .error {
-            color: #d73a49;
-        }
-    </style>
-<base target="_blank">
+    <title>lale.dev — Portafolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
+
+    <nav id="nav">
         <div class="logo">lale.dev</div>
         <ul>
             <li><a href="#inicio">Inicio</a></li>
@@ -37,125 +21,73 @@
     </nav>
 
     <section id="inicio" class="hero">
-        <span class="badge">🦀 Aprendiendo Rust</span>
-        <h1>Este es el inicio de mi portafolio</h1>
-        <p>Estoy construyendo esta página desde cero usando <strong>Rust</strong> como servidor web. Es mi primer paso en el mundo del desarrollo.</p>
-        <p class="subtitle">Servidor corriendo con Axum + Tokio</p>
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <span class="sticker">💻 en construcción</span>
+        <h1>Hola, soy Lale</h1>
+        <p>Estudiante de Ingeniería en Sistemas (UAGRM), 3er semestre. Este es mi portafolio, donde voy a ir mostrando lo que aprendo y construyo.</p>
+        <a href="#contacto" class="btn">Hablemos</a>
     </section>
 
-    <section id="sobre-mi" class="sobre-mi">
+    <section id="sobre-mi" class="sobre-mi reveal">
+        <span class="tag-title">sobre mí</span>
         <h2>Lo que me apasiona</h2>
         <div class="passion-grid">
-            <div class="passion-card">
+            <div class="passion-card" style="--delay:0s">
                 <div class="icon">🎨</div>
                 <h3>UX / UI</h3>
-                <p>Me fascina cómo el diseño puede hacer que una experiencia digital sea intuitiva, hermosa y memorable.</p>
+                <p>Me fascina cómo el diseño puede hacer que una experiencia digital sea intuitiva y memorable.</p>
             </div>
-            <div class="passion-card">
-                <div class="icon">🦀</div>
-                <h3>Rust</h3>
-                <p>Elegí Rust porque quiero entender cómo funciona realmente una computadora. Me gusta que sea rápido, seguro y que me obliga a pensar bien antes de escribir.</p>
+            <div class="passion-card" style="--delay:0.15s">
+                <div class="icon">💻</div>
+                <h3>Desarrollo web</h3>
+                <p>Aprendiendo a construir páginas desde cero. </p>
             </div>
-            <div class="passion-card">
+            <div class="passion-card" style="--delay:0.3s">
                 <div class="icon">🚀</div>
                 <h3>Crecimiento</h3>
-                <p>Este portafolio va a ir creciendo con cada proyecto que haga. La idea es que cada vez que entres aquí, veas algo nuevo.</p>
+                <p>Este portafolio va a ir creciendo con cada proyecto nuevo que termine en la carrera.</p>
             </div>
         </div>
     </section>
 
-    <section id="proyectos" class="proyectos">
-        <h2>Mis Proyectos</h2>
+    <section id="proyectos" class="proyectos reveal">
+        <span class="tag-title">proyectos</span>
+        <h2>Lo que he construido</h2>
         <div class="grid" id="project-grid">
-            <!-- Card estática: Este Portafolio -->
             <div class="card featured">
                 <div class="card-header">
                     <h3>🌐 Este Portafolio</h3>
                     <span class="status live">● En línea</span>
                 </div>
-                <p>Mi primera página web servida 100% con Rust. Usa Axum para el servidor y HTML/CSS puro para el frontend.</p>
+                <p>Mi primera página web, construida desde cero mientras aprendo.</p>
                 <div class="tags">
-                    <span class="tag">Rust</span>
-                    <span class="tag">Axum</span>
                     <span class="tag">HTML</span>
                     <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
                 </div>
             </div>
-            <!-- Las cards de GitHub se insertan aquí -->
+            <div class="card placeholder">
+                <div class="card-header">
+                    <h3>➕ Próximo proyecto</h3>
+                </div>
+                <p>Aquí va a aparecer tu siguiente proyecto de la carrera.</p>
+            </div>
         </div>
     </section>
 
-    <section id="contacto" class="contacto">
+    <section id="contacto" class="contacto reveal">
+        <span class="tag-title">contacto</span>
         <h2>¿Hablamos?</h2>
-        <p>Si te interesa el UX/UI, Rust, o simplemente quieres charlar de código, escríbeme.</p>
-        <a href="mailto:porcelalexandra27@gmail.com" class="btn">Escríbeme</a>
+        <p>Si quieres charlar de diseño, código, o simplemente saludar, escríbeme.</p>
+        <a href="contacto.html" class="btn">Escríbeme</a>
     </section>
 
     <footer>
-        <p>Hecho con curiosidad y Rust · 2026</p>
+        <p> Hecho con curiosidad · 2026</p>
     </footer>
 
-    <script>
-        async function cargarRepos() {
-            const grid = document.getElementById('project-grid');
+    <script src="script.js"></script>
 
-            // Card de carga temporal
-            const loadingCard = document.createElement('div');
-            loadingCard.className = 'card';
-            loadingCard.innerHTML = '<p class="loading">Cargando proyectos de GitHub...</p>';
-            grid.appendChild(loadingCard);
-
-            try {
-                const res = await fetch('https://api.github.com/users/alexandraporcel/repos?sort=updated&per_page=10');
-                if (!res.ok) throw new Error('Error al cargar repos');
-                const repos = await res.json();
-
-                // Quitar card de carga
-                loadingCard.remove();
-
-                // Filtrar forks (opcional, quitá el .filter si querés mostrar todo)
-                const reposFiltrados = repos.filter(r => !r.fork);
-
-                if (reposFiltrados.length === 0) {
-                    const empty = document.createElement('div');
-                    empty.className = 'card';
-                    empty.innerHTML = '<p class="loading">Aún no hay repos públicos para mostrar.</p>';
-                    grid.appendChild(empty);
-                    return;
-                }
-
-                reposFiltrados.forEach(repo => {
-                    const card = document.createElement('div');
-                    card.className = 'card featured';
-
-                    const lang = repo.language || 'Sin lenguaje';
-                    const fecha = new Date(repo.updated_at).toLocaleDateString('es-ES');
-
-                    // Misma estructura que las cards estáticas
-                    card.innerHTML = `
-                        <div class="card-header">
-                            <h3>
-                                <a href="${repo.html_url}" target="_blank" class="repo-title">🔗 ${repo.name}</a>
-                            </h3>
-                            <span class="status" style="color: var(--text-muted); font-size: 0.75rem; font-weight: 600;">${lang}</span>
-                        </div>
-                        <p>${repo.description || 'Sin descripción'}</p>
-                        <div class="tags">
-                            <span class="tag">⭐ ${repo.stargazers_count}</span>
-                            <span class="tag">${repo.forks_count} forks</span>
-                            <span class="tag">${fecha}</span>
-                        </div>
-                    `;
-                    grid.appendChild(card);
-                });
-
-            } catch (err) {
-                loadingCard.innerHTML = `<p class="error">No se pudieron cargar los repos de GitHub.</p>`;
-                console.error(err);
-            }
-        }
-
-        cargarRepos();
-    </script>
 </body>
 </html>
