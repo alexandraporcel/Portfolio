@@ -1,11 +1,11 @@
-// Nav con sombra al hacer scroll 
+// ---- Nav con sombra al hacer scroll ----
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 10);
 });
 
-// Animación al hacer scroll 
-
+// ---- Animación al hacer scroll ----
+// IntersectionObserver "vigila" elementos y avisa cuando entran a la pantalla.
 const observador = new IntersectionObserver((entradas) => {
     entradas.forEach(entrada => {
         if (entrada.isIntersecting) {              // ¿está visible?
@@ -17,7 +17,7 @@ const observador = new IntersectionObserver((entradas) => {
 
 document.querySelectorAll('.reveal').forEach(el => observador.observe(el));
 
-// Efecto tilt (inclinación) en las tarjetas 
+// ---- Efecto tilt (inclinación) en las tarjetas ----
 function activarTilt(card) {
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
@@ -31,3 +31,6 @@ function activarTilt(card) {
 }
 
 document.querySelectorAll('.card, .passion-card').forEach(activarTilt);
+
+const floatingCard = document.getElementById('floatingCard');
+if (floatingCard) activarTilt(floatingCard);
